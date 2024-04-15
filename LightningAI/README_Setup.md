@@ -4,12 +4,6 @@
 
 The Center for Artificial Intelligence @ ZHAW provides you with compute resources in the cloud. LightningAI allows you to edit your code in the browser or with your favourite IDE via a remote development environment. You will have access to a GPU and can run your code in the background. By the end of the setup, you will have an account set up, be part of the Course Org and assigned to a group.
 
-## Prerequisites
-
-We assume that you completed the first tutorial and have a running VScode
-installation as well as created an SSH key for connecting to github.zhaw.ch.
-Please sign in using your student email such that we can link it to the course.
-
 ## Step I: Register and Create an Account
 
 Navigate to [https://lightning.ai](https://lightning.ai) and create an account. Provide your ZHAW
@@ -19,13 +13,13 @@ The link directs you to your personal space on lightning.ai.
 ![Login ](img/Login.png)
 
 ## Step II: Fill Out the Course Excel Sheet
-Access MS Teams and navigate to the CVDL Team.
+Access MS Teams and navigate to the MLDM2 FS2024 Team.
 Open `Groups.xlsx` Excel sheet under `General > Files`.
 Join a group and enter your name as well as your `lightning.ai` username.
-The course instructor or teaching assistent will review the Excel sheet and
-assign you to a group in Lightning AI based on the information you provided.
+Based on the information provided in the Excel sheet you will be 
+assign to a group in Lightning AI.
 
-Note: you might need to log off and on again in order to see the CVDL group.
+Note: you might need to log off and on again in order to see the MLDM2 group in LightningAI.
 
 You can continue with the next steps using the free tier account.
 
@@ -93,7 +87,7 @@ sudo apt install git-lfs
 ```
 
 The starship prompt is a nice addition to the terminal.
-This step is optional and requires requires a compatible terminal application
+This step is optional and requires a compatible terminal application
 and fonts.
 See [Starship](https://starship.rs/) for more information.
 
@@ -114,7 +108,7 @@ When you login next time or open a new shell, you should have a nice prompt and
 
 ## Step IV: Copy your ZHAW Github SSH key to the studio
 
-To access the course repository, you need to copy your ZHAW Github SSH key to
+To access your project repository, you need to copy your ZHAW Github SSH key to
 the studio. You can do this by running the following command in your local
 terminal (replace `github.zhaw` with the name of your SSH key and
 the cryptic user name with the one given by lightning.ai):
@@ -134,7 +128,7 @@ chmod og-rwx ~/.ssh/<YOUR_PRIVATE_KEY>
 echo -e "Host github.zhaw.ch\n\tUser git\n\tHostName github.zhaw.ch\n\tStrictHostKeyChecking no\n\tIdentityFile ~/.ssh/<YOUR_PRIVATE_KEY>" >> ~/.ssh/config
 ```
 
-By default, the permission of the SSH key are reset after a stopping the
+By default, the permission of the SSH key are reset after stopping the
 studio. To avoid this, you can configure the startup script to set the correct
 permissions.
 
@@ -142,27 +136,26 @@ permissions.
 echo "chmod og-rwx ~/.ssh/<YOUR_PRIVATE_KEY>" >> ~/.lightning_studio/on_start.sh
 ```
 
-## Step V: Clone the course repository
+## Step V: Clone the your repository
 
-Connect to the studio via SSH and clone the course repository. This will also
-install the course package and its dependencies.
-Note, in a LightningAI studio, only one conda environment is allowed. Therefore,
-we install the course package in the base environment.
+Connect to the studio via SSH and clone the project repository. This will also
+install any packages and dependencies you have specified in your project.
+Note, in a LightningAI studio, only one conda environment is allowed.
 
 ```shell
 # Clone
-GIT_LFS_SKIP_SMUDGE=1 git clone git@github.zhaw.ch:CVDL/CVDL_BSc.git
+GIT_LFS_SKIP_SMUDGE=1 git clone git@github.zhaw.ch:<YOUR REPO>.git
 # Change into the repository
-cd CVDL_BSc
+cd <YOUR REPO>
 # Get images from Git LFS storage
 git lfs pull --include "*.png" --include "*.gif"
-# Install the course package and dependencies
+# Install packages and dependencies
 pip install -e .
 ```
 
 ## Step VI: Run tutorial code on Lightning AI
 
-You can now run the tutorial code in the studio.
+You can now run your code in the studio.
 If you have credits for a GPU, restart the studio and select a GPU
 configuration to run the code wih accelerated hardware.
 Note, your connection will be lost when you restart the studio.
