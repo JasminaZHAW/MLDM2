@@ -43,7 +43,7 @@ a single running teamspace at a time in the free tier.
 
 ![image](img/New_Studio.png)
 
-Once started, the studio should look something like this:
+Once started, the studio should look something like this, just instead CVDL-FS2023 you will have MLDM2-FS2024:
 
 ![image](img/Studio.png)
 
